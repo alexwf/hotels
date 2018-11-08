@@ -1,0 +1,29 @@
+﻿@model List<SisEventos.Models.Curso>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Cursos</h2>
+
+
+<a class="btn btn-primary" asp-controller="Cursos" asp-action="Create">Adicionar Curso</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Código</td>
+            <td>Nome</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach(var curso in Model)
+       {
+           <tr>
+               <td>@curso.Id</td>
+               <td>@curso.Nome</td>
+           </tr>
+       }
+    </tbody>
+</table>
+
