@@ -48,7 +48,8 @@ namespace SisEventos.Migrations
                     CaminhoImagem = table.Column<string>(nullable: true),
                     CursoId = table.Column<long>(nullable: true),
                     Descricao = table.Column<string>(nullable: true),
-                    Nome = table.Column<string>(nullable: true)
+                    Nome = table.Column<string>(nullable: true),
+                    Preco = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {

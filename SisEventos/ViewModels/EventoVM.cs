@@ -28,6 +28,10 @@ namespace SisEventos.ViewModels
         [Display(Name = "Descrição do evento")]
         public string Descricao { get; set; }
 
+        [Required(ErrorMessage = "Informe o preço")]
+        [Display(Name = "Preço")]
+        public decimal Preco { get; set; }
+
         [Display(Name = "Imagem de capa")]
         public IFormFile Imagem { get; set; }
 

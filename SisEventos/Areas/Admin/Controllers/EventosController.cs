@@ -74,6 +74,7 @@ namespace SisEventos.Areas.Admin.Controllers
                 Evento evento = new Evento();
                 evento.Nome = vm.Nome;
                 evento.Descricao = vm.Descricao;
+                evento.Preco = vm.Preco;
                 evento.CaminhoImagem = this.UploadImagem(vm.Imagem);
                 evento.Curso = db.Cursos.Find(vm.IdCursoSelecionado);
                 this.db.Eventos.Add(evento);
@@ -110,6 +111,7 @@ namespace SisEventos.Areas.Admin.Controllers
             EventoVM vm = new EventoVM();
             vm.Nome = evento.Nome;
             vm.Descricao = evento.Descricao;
+            vm.Preco = evento.Preco;
             var cursos = db.Cursos.ToList();
             foreach (var curso in cursos)
             {
@@ -132,6 +134,7 @@ namespace SisEventos.Areas.Admin.Controllers
                 Evento eventoDb = this.db.Eventos.Find(id);
                 eventoDb.Nome = vm.Nome;
                 eventoDb.Descricao = vm.Descricao;
+                eventoDb.Preco = vm.Preco;
                 eventoDb.CaminhoImagem = this.UploadImagem(vm.Imagem);
                 eventoDb.Curso = db.Cursos.Find(vm.IdCursoSelecionado);
                 db.SaveChanges();

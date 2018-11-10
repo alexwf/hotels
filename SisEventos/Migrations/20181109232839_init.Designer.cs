@@ -11,7 +11,7 @@ using System;
 namespace SisEventos.Migrations
 {
     [DbContext(typeof(Banco))]
-    [Migration("20181029125459_init")]
+    [Migration("20181109232839_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,6 +49,8 @@ namespace SisEventos.Migrations
                     b.Property<string>("Descricao");
 
                     b.Property<string>("Nome");
+
+                    b.Property<decimal>("Preco");
 
                     b.HasKey("Id");
 

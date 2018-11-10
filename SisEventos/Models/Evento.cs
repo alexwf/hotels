@@ -19,6 +19,8 @@ namespace SisEventos.Models
         [Display(Name="Imagem do evento")]
         public String CaminhoImagem { get; set; }
 
+        [Display(Name ="Preço")]
+        public Decimal Preco { get; set; }
 
         [Display(Name="Curso")]
         public virtual Curso Curso { get; set; }

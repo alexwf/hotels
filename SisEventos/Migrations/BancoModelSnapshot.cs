@@ -49,6 +49,8 @@ namespace SisEventos.Migrations
 
                     b.Property<string>("Nome");
 
+                    b.Property<decimal>("Preco");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CursoId");
