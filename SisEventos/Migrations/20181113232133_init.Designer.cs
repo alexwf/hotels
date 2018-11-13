@@ -11,7 +11,7 @@ using System;
 namespace SisEventos.Migrations
 {
     [DbContext(typeof(Banco))]
-    [Migration("20181109232839_init")]
+    [Migration("20181113232133_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,7 +37,7 @@ namespace SisEventos.Migrations
                     b.ToTable("Cursos");
                 });
 
-            modelBuilder.Entity("SisEventos.Models.Evento", b =>
+            modelBuilder.Entity("SisEventos.Models.Hotel", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
@@ -56,7 +56,7 @@ namespace SisEventos.Migrations
 
                     b.HasIndex("CursoId");
 
-                    b.ToTable("Eventos");
+                    b.ToTable("Hoteis");
                 });
 
             modelBuilder.Entity("SisEventos.Models.Usuario", b =>
@@ -80,7 +80,7 @@ namespace SisEventos.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("SisEventos.Models.Evento", b =>
+            modelBuilder.Entity("SisEventos.Models.Hotel", b =>
                 {
                     b.HasOne("SisEventos.Models.Curso", "Curso")
                         .WithMany()

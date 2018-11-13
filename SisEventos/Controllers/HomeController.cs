@@ -20,7 +20,7 @@ namespace SisEventos.Controllers
 
         public IActionResult Index()
         {
-            List<Evento> eventos = db.Eventos
+            List<Hotel> eventos = db.Hoteis
                                      .OrderByDescending(x => x.Id)
                                      .Take(3)
                                      .ToList();

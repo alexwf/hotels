@@ -1,9 +1,9 @@
-﻿@model List<SisEventos.Models.Evento>
+﻿@model List<SisEventos.Models.Hotel>
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Eventos</h2>
+<h2>Hoteis</h2>
 
 <table class="table">
     <thead>
@@ -16,14 +16,14 @@
     </thead>
 
     <tbody>
-        @foreach (Evento evento in Model)
+        @foreach (Hotel hotel in Model)
         {
             <tr>
-                <td>@evento.Id</td>
-                <td>@evento.Nome</td>
-                <td>@evento.Descricao</td>
+                <td>@hotel.Id</td>
+                <td>@hotel.Nome</td>
+                <td>@hotel.Descricao</td>
                 <td>
-                    <img class="img-principal-evento" src="@evento.CaminhoImagem" />
+                    <img src="@hotel.CaminhoImagem" />
                 </td>
             </tr>
         }

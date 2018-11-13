@@ -9,26 +9,26 @@ using System.Threading.Tasks;
 
 namespace SisEventos.ViewModels
 {
-    public class EventoVM
+    public class HotelVM
     {
-        public EventoVM()
+        public HotelVM()
         {
             this.Cursos = new List<SelectListItem>();
         }
         
         public long Id { get; set; }
 
-        [Required(ErrorMessage = "Informe o nome do evento")]
+        [Required(ErrorMessage = "Informe o nome do hotel")]
         [StringLength(50, MinimumLength = 5, ErrorMessage =
             "O Nome deve ter no mínimo 5 e no máximo 50 caracteres.")]
-        [Display(Name = "Nome do evento")]
+        [Display(Name = "Nome do hotel")]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "Informe a descrição do evento")]
-        [Display(Name = "Descrição do evento")]
+        [Required(ErrorMessage = "Informe a descrição do hotel")]
+        [Display(Name = "Descrição do hotel")]
         public string Descricao { get; set; }
 
-        [Required(ErrorMessage = "Informe o preço")]
+        [Required(ErrorMessage = "Informe o preço da diária")]
         [Display(Name = "Preço")]
         public decimal Preco { get; set; }
 

@@ -1,4 +1,4 @@
-﻿@model List<SisEventos.Models.Evento>
+﻿@model List<SisEventos.Models.Hotel>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -18,17 +18,17 @@
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row">
-            @foreach (Evento evento in Model)
+            @foreach (Hotel hotel in Model)
             {
                 <div class="col-md-4">
-                    <a asp-area="" asp-controller="Eventos" asp-action="Detail" asp-route-id="@evento.Id">
+                    <a asp-area="" asp-controller="Hoteis" asp-action="Detail" asp-route-id="@hotel.Id">
                         <div class="card mb-4 shadow-sm">
-                            <img class="card-img-top" src="@evento.CaminhoImagem" style="height: 225px; width: 100%; display: block;" data-holder-rendered="true">
+                            <img class="card-img-top" src="@hotel.CaminhoImagem" style="height: 225px; width: 100%; display: block;" data-holder-rendered="true">
                             <div class="card-body">
-                                <h3>@evento.Nome</h3>
-                                <p class="card-text">@evento.Descricao</p>
+                                <h3>@hotel.Nome</h3>
+                                <p class="card-text">@hotel.Descricao</p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted">R$ @evento.Preco</small>
+                                    <small class="text-muted">R$ @hotel.Preco</small>
                                 </div>
                             </div>
                         </div>

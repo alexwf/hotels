@@ -8,36 +8,36 @@ using SisEventos.Models;
 
 namespace SisEventos.Controllers
 {
-    public class EventosController : Controller
+    public class HoteisController : Controller
     {
 
         private Banco db;
 
-        public EventosController(Banco _db)
+        public HoteisController(Banco _db)
         {
             this.db = _db;
         }
 
         public IActionResult Index()
         {
-            List<Evento> eventos = db.Eventos.ToList();
-            return View(eventos);
+            List<Hotel> hoteis = db.Hoteis.ToList();
+            return View(hoteis);
         }
 
         [HttpGet]
         public IActionResult Detail(long id)
         {
-            Evento evento = this.db.Eventos
+            Hotel hotel = this.db.Hoteis
                                   .Include(m => m.Curso)
                                   .Where(x => x.Id == id)
                                   .FirstOrDefault();
 
-            if (evento == null)
+            if (hotel == null)
             {
                 return NotFound();
             }
 
-            return View(evento);
+            return View(hotel);
         }
     }
 }

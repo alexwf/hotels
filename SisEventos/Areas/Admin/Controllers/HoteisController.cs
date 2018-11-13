@@ -13,7 +13,7 @@ using SisEventos.ViewModels;
 
 namespace SisEventos.Areas.Admin.Controllers
 {
-    public class EventosController : BaseAdminController
+    public class HoteisController : BaseAdminController
     {
         
         private IHostingEnvironment env;
@@ -24,34 +24,34 @@ namespace SisEventos.Areas.Admin.Controllers
             {
                 string extension = Path.GetExtension(formFile.FileName);
                 string fileName = $"{Guid.NewGuid().ToString()}{extension}";
-                var path = Path.Combine(env.WebRootPath, "eventos", fileName).ToLower();
+                var path = Path.Combine(env.WebRootPath, "hoteis", fileName).ToLower();
 
                 using (var fileStream = new FileStream(path, FileMode.Create))
                 {
                     formFile.CopyTo(fileStream);
                 }
 
-                return $"/eventos/{fileName}";
+                return $"/hoteis/{fileName}";
             }
 
             return null;
         }
 
-        public EventosController(Banco _db, IHostingEnvironment _env): base(_db)
+        public HoteisController(Banco _db, IHostingEnvironment _env): base(_db)
         {
             this.env = _env;
         }
 
         public IActionResult Index()
         {
-            List<Evento> eventos = this.db.Eventos.ToList();
-            return View(eventos);
+            List<Hotel> hoteis = this.db.Hoteis.ToList();
+            return View(hoteis);
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            EventoVM vm = new EventoVM();
+            HotelVM vm = new HotelVM();
 
             var cursos = db.Cursos.ToList();
             foreach(var curso in cursos)
@@ -67,17 +67,17 @@ namespace SisEventos.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(EventoVM vm)
+        public IActionResult Create(HotelVM vm)
         {
             if(ModelState.IsValid)
             {
-                Evento evento = new Evento();
-                evento.Nome = vm.Nome;
-                evento.Descricao = vm.Descricao;
-                evento.Preco = vm.Preco;
-                evento.CaminhoImagem = this.UploadImagem(vm.Imagem);
-                evento.Curso = db.Cursos.Find(vm.IdCursoSelecionado);
-                this.db.Eventos.Add(evento);
+                Hotel hotel = new Hotel();
+                hotel.Nome = vm.Nome;
+                hotel.Descricao = vm.Descricao;
+                hotel.Preco = vm.Preco;
+                hotel.CaminhoImagem = this.UploadImagem(vm.Imagem);
+                hotel.Curso = db.Cursos.Find(vm.IdCursoSelecionado);
+                this.db.Hoteis.Add(hotel);
                 this.db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -98,20 +98,20 @@ namespace SisEventos.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Edit(long id)
         {
-            Evento evento = this.db.Eventos
+            Hotel hotel = this.db.Hoteis
                                    .Include(m => m.Curso)
                                    .Where(x => x.Id == id)
                                    .FirstOrDefault();
 
-            if (evento == null)
+            if (hotel == null)
             {
                 return NotFound();
             }
 
-            EventoVM vm = new EventoVM();
-            vm.Nome = evento.Nome;
-            vm.Descricao = evento.Descricao;
-            vm.Preco = evento.Preco;
+            HotelVM vm = new HotelVM();
+            vm.Nome = hotel.Nome;
+            vm.Descricao = hotel.Descricao;
+            vm.Preco = hotel.Preco;
             var cursos = db.Cursos.ToList();
             foreach (var curso in cursos)
             {
@@ -121,22 +121,22 @@ namespace SisEventos.Areas.Admin.Controllers
                     Text = curso.Nome
                 });
             }
-            vm.IdCursoSelecionado = evento.Curso.Id;
+            vm.IdCursoSelecionado = hotel.Curso.Id;
 
             return View(vm);
         }
 
         [HttpPost]
-        public IActionResult Edit(long id, EventoVM vm)
+        public IActionResult Edit(long id, HotelVM vm)
         {
             if (ModelState.IsValid)
             {
-                Evento eventoDb = this.db.Eventos.Find(id);
-                eventoDb.Nome = vm.Nome;
-                eventoDb.Descricao = vm.Descricao;
-                eventoDb.Preco = vm.Preco;
-                eventoDb.CaminhoImagem = this.UploadImagem(vm.Imagem);
-                eventoDb.Curso = db.Cursos.Find(vm.IdCursoSelecionado);
+                Hotel hotelDb = this.db.Hoteis.Find(id);
+                hotelDb.Nome = vm.Nome;
+                hotelDb.Descricao = vm.Descricao;
+                hotelDb.Preco = vm.Preco;
+                hotelDb.CaminhoImagem = this.UploadImagem(vm.Imagem);
+                hotelDb.Curso = db.Cursos.Find(vm.IdCursoSelecionado);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -147,44 +147,44 @@ namespace SisEventos.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Detail(long id)
         {
-            Evento evento = this.db.Eventos
+            Hotel hotel = this.db.Hoteis
                                   .Include(m => m.Curso)
                                   .Where(x => x.Id == id)
                                   .FirstOrDefault();
 
-            if (evento == null)
+            if (hotel == null)
             {
                 return NotFound();
             }
 
-            return View(evento);
+            return View(hotel);
         }
 
         [HttpGet]
         public IActionResult Delete(long id)
         {
-            Evento evento = this.db.Eventos
+            Hotel hotel = this.db.Hoteis
                                   .Include(m => m.Curso)
                                   .Where(x => x.Id == id)
                                   .FirstOrDefault();
 
-            if (evento == null)
+            if (hotel == null)
             {
                 return NotFound();
             }
 
-            return View(evento);
+            return View(hotel);
         }
 
         [HttpPost]
-        public IActionResult Delete(long id, Evento evento)
+        public IActionResult Delete(long id, Hotel hotel)
         {
-            Evento eventoDb = this.db.Eventos
+            Hotel hotelDb = this.db.Hoteis
                                   .Include(m => m.Curso)
                                   .Where(x => x.Id == id)
                                   .FirstOrDefault();
 
-            db.Eventos.Remove(eventoDb);
+            db.Hoteis.Remove(hotelDb);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

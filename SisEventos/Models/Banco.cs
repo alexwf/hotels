@@ -10,9 +10,8 @@ namespace SisEventos.Models
     {
         public Banco(DbContextOptions<Banco> options) : base(options) { }
 
-        public virtual DbSet<Evento> Eventos { get; set; }
+        public virtual DbSet<Hotel> Hoteis { get; set; }
         public virtual DbSet<Curso> Cursos { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
-        
     }
 }

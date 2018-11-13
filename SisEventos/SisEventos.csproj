@@ -17,7 +17,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="wwwroot\eventos\" />
+    <Folder Include="wwwroot\hoteis\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,7 +27,7 @@
     <Content Update="Views\Auth\SignUp.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Eventos\Detail.cshtml">
+    <Content Update="Views\Hoteis\Detail.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>

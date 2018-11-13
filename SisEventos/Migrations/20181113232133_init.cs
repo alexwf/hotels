@@ -40,7 +40,7 @@ namespace SisEventos.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Eventos",
+                name: "Hoteis",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
@@ -53,9 +53,9 @@ namespace SisEventos.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Eventos", x => x.Id);
+                    table.PrimaryKey("PK_Hoteis", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Eventos_Cursos_CursoId",
+                        name: "FK_Hoteis_Cursos_CursoId",
                         column: x => x.CursoId,
                         principalTable: "Cursos",
                         principalColumn: "Id",
@@ -63,15 +63,15 @@ namespace SisEventos.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Eventos_CursoId",
-                table: "Eventos",
+                name: "IX_Hoteis_CursoId",
+                table: "Hoteis",
                 column: "CursoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Eventos");
+                name: "Hoteis");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");

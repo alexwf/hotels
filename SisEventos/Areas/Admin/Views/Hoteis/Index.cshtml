@@ -1,0 +1,37 @@
+﻿@model List<SisEventos.Models.Hotel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Hoteis</h1>
+
+<a href="/admin/hoteis/create" class="btn btn-primary">Adicionar Novo</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hotel in Model)
+        {
+        <tr>
+            
+                <td>@hotel.Id</td>
+                <td>
+                    <a asp-area="Admin" asp-controller="Hoteis" asp-action="Detail" asp-route-id="@hotel.Id">
+                        @hotel.Nome
+                    </a>
+                </td>
+                <td>
+                    <a asp-area="Admin" asp-controller="Hoteis" asp-action="Edit" asp-route-id="@hotel.Id">Editar</a>
+                    <a asp-area="Admin" asp-controller="Hoteis" asp-action="Delete" asp-route-id="@hotel.Id">Apagar</a>
+                </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
