@@ -1,12 +1,12 @@
-﻿@model List<SisEventos.Models.Curso>
+﻿@model List<SisEventos.Models.Cidade>
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Cursos</h2>
+<h2>Cidades</h2>
 
 
-<a class="btn btn-primary" asp-controller="Cursos" asp-action="Create">Adicionar Curso</a>
+<a class="btn btn-primary" asp-controller="Cidades" asp-action="Create">Adicionar cidade</a>
 
 <table class="table table-striped">
     <thead>
@@ -17,11 +17,11 @@
         </tr>
     </thead>
     <tbody>
-       @foreach(var curso in Model)
+       @foreach(var cidade in Model)
        {
            <tr>
-               <td>@curso.Id</td>
-               <td>@curso.Nome</td>
+               <td>@cidade.Id</td>
+               <td>@cidade.Nome</td>
            </tr>
        }
     </tbody>

@@ -20,20 +20,17 @@ namespace SisEventos.Migrations
                 .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SisEventos.Models.Curso", b =>
+            modelBuilder.Entity("SisEventos.Models.Cidade", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Descricao")
-                        .IsRequired();
 
                     b.Property<string>("Nome")
                         .IsRequired();
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cursos");
+                    b.ToTable("Cidades");
                 });
 
             modelBuilder.Entity("SisEventos.Models.Hotel", b =>
@@ -43,7 +40,7 @@ namespace SisEventos.Migrations
 
                     b.Property<string>("CaminhoImagem");
 
-                    b.Property<long?>("CursoId");
+                    b.Property<long?>("CidadeId");
 
                     b.Property<string>("Descricao");
 
@@ -51,11 +48,31 @@ namespace SisEventos.Migrations
 
                     b.Property<decimal>("Preco");
 
+                    b.Property<long?>("SuiteId");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CursoId");
+                    b.HasIndex("CidadeId");
+
+                    b.HasIndex("SuiteId");
 
                     b.ToTable("Hoteis");
+                });
+
+            modelBuilder.Entity("SisEventos.Models.Suite", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<short>("QtCamaCasal");
+
+                    b.Property<short>("QtCamaSolteiro");
+
+                    b.Property<string>("Tipo");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Suite");
                 });
 
             modelBuilder.Entity("SisEventos.Models.Usuario", b =>
@@ -81,9 +98,13 @@ namespace SisEventos.Migrations
 
             modelBuilder.Entity("SisEventos.Models.Hotel", b =>
                 {
-                    b.HasOne("SisEventos.Models.Curso", "Curso")
+                    b.HasOne("SisEventos.Models.Cidade", "Cidade")
                         .WithMany()
-                        .HasForeignKey("CursoId");
+                        .HasForeignKey("CidadeId");
+
+                    b.HasOne("SisEventos.Models.Suite", "Suite")
+                        .WithMany()
+                        .HasForeignKey("SuiteId");
                 });
 #pragma warning restore 612, 618
         }

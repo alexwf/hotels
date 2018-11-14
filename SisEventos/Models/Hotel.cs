@@ -10,19 +10,23 @@ namespace SisEventos.Models
     {
         public long Id { get; set; }
 
-        [Display(Name="Nome")]
+        [Display(Name = "Nome")]
         public String Nome { get; set; }
 
-        [Display(Name="Descrição do hotel")]
+        [Display(Name = "Descrição do hotel")]
         public String Descricao { get; set; }
 
-        [Display(Name= "Imagem do hotel")]
+        [Display(Name = "Imagem do hotel")]
         public String CaminhoImagem { get; set; }
 
-        [Display(Name ="Preço da diária")]
+        [Display(Name = "Preço da diária")]
         public Decimal Preco { get; set; }
 
-        [Display(Name="Curso")]
-        public virtual Curso Curso { get; set; }
+        [Display(Name = "Cidade")]
+        public virtual Cidade Cidade { get; set; }
+
+        [Display(Name = "Suite")]
+        public virtual Suite Suite { get; set; }
+
     }
 }

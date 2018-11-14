@@ -1,13 +1,13 @@
-﻿@model SisEventos.Models.Curso
+﻿@model SisEventos.Models.Cidade
 @{
-    ViewData["Title"] = "Curso";
+    ViewData["Title"] = "Cidade";
 }
 
-<h2>Novo Curso</h2>
+<h2>Nova Cidade</h2>
 
 <div class="row">
 
-    <form asp-controller="Cursos"
+    <form asp-controller="Cidades"
           asp-action="Create"
           method="post"
           class="form-horizontal">
@@ -18,15 +18,6 @@
             <div class="col-sm-12">
                 <input class="form-control" asp-for="Nome" />
                 <span class="text-danger" asp-validation-for="Nome"></span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-12 control-label" asp-for="Descricao"></label>
-
-            <div class="col-sm-12">
-                <input class="form-control" asp-for="Descricao" />
-                <span class="text-danger" asp-validation-for="Descricao"></span>
             </div>
         </div>
 

@@ -7,34 +7,34 @@ using SisEventos.Models;
 
 namespace SisEventos.Areas.Admin.Controllers
 {
-    public class CursosController : BaseAdminController
+    public class CidadesController : BaseAdminController
     {
-        public CursosController(Banco db) : base(db) { }
+        public CidadesController(Banco db) : base(db) { }
 
         public IActionResult Index()
         {
-            var cursos = db.Cursos.ToList();
-            return View(cursos);
+            var cidades = db.Cidades.ToList();
+            return View(cidades);
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            Curso curso = new Curso();
-            return View(curso);
+            Cidade cidade = new Cidade();
+            return View(cidade);
         }
 
         [HttpPost]
-        public IActionResult Create(Curso curso)
+        public IActionResult Create(Cidade cidade)
         {
             if (ModelState.IsValid)
             {
-                db.Cursos.Add(curso);
+                db.Cidades.Add(cidade);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(curso);
+            return View(cidade);
         }
     }
 }

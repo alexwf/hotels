@@ -28,7 +28,7 @@ namespace SisEventos.Controllers
         public IActionResult Detail(long id)
         {
             Hotel hotel = this.db.Hoteis
-                                  .Include(m => m.Curso)
+                                  .Include(m => m.Cidade)
                                   .Where(x => x.Id == id)
                                   .FirstOrDefault();
 

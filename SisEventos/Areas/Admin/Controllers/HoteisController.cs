@@ -53,13 +53,13 @@ namespace SisEventos.Areas.Admin.Controllers
         {
             HotelVM vm = new HotelVM();
 
-            var cursos = db.Cursos.ToList();
-            foreach(var curso in cursos)
+            var cidades = db.Cidades.ToList();
+            foreach(var cidade in cidades)
             {
-                vm.Cursos.Add(new SelectListItem
+                vm.Cidades.Add(new SelectListItem
                 {
-                    Value = curso.Id.ToString(),
-                    Text = curso.Nome
+                    Value = cidade.Id.ToString(),
+                    Text = cidade.Nome
                 });
             }
 
@@ -76,19 +76,19 @@ namespace SisEventos.Areas.Admin.Controllers
                 hotel.Descricao = vm.Descricao;
                 hotel.Preco = vm.Preco;
                 hotel.CaminhoImagem = this.UploadImagem(vm.Imagem);
-                hotel.Curso = db.Cursos.Find(vm.IdCursoSelecionado);
+                hotel.Cidade = db.Cidades.Find(vm.IdCidadeSelecionada);
                 this.db.Hoteis.Add(hotel);
                 this.db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            var cursos = db.Cursos.ToList();
-            foreach (var curso in cursos)
+            var cidades = db.Cidades.ToList();
+            foreach (var cidade in cidades)
             {
-                vm.Cursos.Add(new SelectListItem
+                vm.Cidades.Add(new SelectListItem
                 {
-                    Value = curso.Id.ToString(),
-                    Text = curso.Nome
+                    Value = cidade.Id.ToString(),
+                    Text = cidade.Nome
                 });
             }
             
@@ -99,7 +99,7 @@ namespace SisEventos.Areas.Admin.Controllers
         public IActionResult Edit(long id)
         {
             Hotel hotel = this.db.Hoteis
-                                   .Include(m => m.Curso)
+                                   .Include(m => m.Cidade)
                                    .Where(x => x.Id == id)
                                    .FirstOrDefault();
 
@@ -112,16 +112,16 @@ namespace SisEventos.Areas.Admin.Controllers
             vm.Nome = hotel.Nome;
             vm.Descricao = hotel.Descricao;
             vm.Preco = hotel.Preco;
-            var cursos = db.Cursos.ToList();
-            foreach (var curso in cursos)
+            var cidades = db.Cidades.ToList();
+            foreach (var cidade in cidades)
             {
-                vm.Cursos.Add(new SelectListItem
+                vm.Cidades.Add(new SelectListItem
                 {
-                    Value = curso.Id.ToString(),
-                    Text = curso.Nome
+                    Value = cidade.Id.ToString(),
+                    Text = cidade.Nome
                 });
             }
-            vm.IdCursoSelecionado = hotel.Curso.Id;
+            vm.IdCidadeSelecionada = hotel.Cidade.Id;
 
             return View(vm);
         }
@@ -136,7 +136,7 @@ namespace SisEventos.Areas.Admin.Controllers
                 hotelDb.Descricao = vm.Descricao;
                 hotelDb.Preco = vm.Preco;
                 hotelDb.CaminhoImagem = this.UploadImagem(vm.Imagem);
-                hotelDb.Curso = db.Cursos.Find(vm.IdCursoSelecionado);
+                hotelDb.Cidade = db.Cidades.Find(vm.IdCidadeSelecionada);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -148,7 +148,7 @@ namespace SisEventos.Areas.Admin.Controllers
         public IActionResult Detail(long id)
         {
             Hotel hotel = this.db.Hoteis
-                                  .Include(m => m.Curso)
+                                  .Include(m => m.Cidade)
                                   .Where(x => x.Id == id)
                                   .FirstOrDefault();
 
@@ -164,7 +164,7 @@ namespace SisEventos.Areas.Admin.Controllers
         public IActionResult Delete(long id)
         {
             Hotel hotel = this.db.Hoteis
-                                  .Include(m => m.Curso)
+                                  .Include(m => m.Cidade)
                                   .Where(x => x.Id == id)
                                   .FirstOrDefault();
 
@@ -180,7 +180,7 @@ namespace SisEventos.Areas.Admin.Controllers
         public IActionResult Delete(long id, Hotel hotel)
         {
             Hotel hotelDb = this.db.Hoteis
-                                  .Include(m => m.Curso)
+                                  .Include(m => m.Cidade)
                                   .Where(x => x.Id == id)
                                   .FirstOrDefault();
 

@@ -13,7 +13,7 @@ namespace SisEventos.ViewModels
     {
         public HotelVM()
         {
-            this.Cursos = new List<SelectListItem>();
+            this.Cidades = new List<SelectListItem>();
         }
         
         public long Id { get; set; }
@@ -35,10 +35,10 @@ namespace SisEventos.ViewModels
         [Display(Name = "Imagem de capa")]
         public IFormFile Imagem { get; set; }
 
-        public List<SelectListItem> Cursos { get; set; }
+        public List<SelectListItem> Cidades { get; set; }
 
-        [Display(Name = "Curso")]
-        [Required(ErrorMessage = "Informe o curso do evento")]
-        public long IdCursoSelecionado { get; set; }
+        [Display(Name = "Cidade")]
+        [Required(ErrorMessage = "Informe a cidade")]
+        public long IdCidadeSelecionada { get; set; }
     }
 }
