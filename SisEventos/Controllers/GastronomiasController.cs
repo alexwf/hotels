@@ -23,21 +23,5 @@ namespace SisEventos.Controllers
             List<Gastronomia> gastronomias = db.Gastronomia.ToList();
             return View(gastronomias );
         }
-
-        [HttpGet]
-        public IActionResult Detail(long id)
-        {
-            Gastronomia gastronomia = this.db.Gastronomia
-                                  .Include(m => m.Cidade)
-                                  .Where(x => x.Id == id)
-                                  .FirstOrDefault();
-
-            if (gastronomia == null)
-            {
-                return NotFound();
-            }
-
-            return View(gastronomia);
-        }
     }
 }

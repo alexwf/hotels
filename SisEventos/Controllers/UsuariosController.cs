@@ -23,21 +23,5 @@ namespace SisEventos.Controllers
             List<Usuario> usuarios = db.Usuarios.ToList();
             return View(usuarios);
         }
-
-        [HttpGet]
-        public IActionResult Detail(long id)
-        {
-            Usuario usuario = this.db.Usuarios
-                                  .Include(m => m.Cidade)
-                                  .Where(x => x.Id == id)
-                                  .FirstOrDefault();
-
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-
-            return View(usuario);
-        }
     }
 }

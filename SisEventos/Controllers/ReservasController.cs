@@ -8,12 +8,12 @@ using SisEventos.Models;
 
 namespace SisEventos.Controllers
 {
-    public class HoteisController : Controller
+    public class ReservasController : Controller
     {
 
         private Banco db;
 
-        public HoteisController(Banco _db)
+        public ReservasController(Banco _db)
         {
             this.db = _db;
         }

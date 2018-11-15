@@ -23,21 +23,5 @@ namespace SisEventos.Controllers
             List<Suite> suites = db.Suites.ToList();
             return View(suites);
         }
-
-        [HttpGet]
-        public IActionResult Detail(long id)
-        {
-            Suite suite = this.db.Suites
-                                  .Include(m => m.Cidade)
-                                  .Where(x => x.Id == id)
-                                  .FirstOrDefault();
-
-            if (suite == null)
-            {
-                return NotFound();
-            }
-
-            return View(suite);
-        }
     }
 }

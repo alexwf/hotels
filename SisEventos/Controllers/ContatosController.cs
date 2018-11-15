@@ -24,21 +24,5 @@ namespace SisEventos.Controllers
  
             return View(contatos);
         }
-
-        [HttpGet]
-        public IActionResult Detail(long id)
-        {
-            Contato contato = this.db.Contato
-                                  .Include(m => m.Cidade)
-                                  .Where(x => x.Id == id)
-                                  .FirstOrDefault();
-
-            if (contato == null)
-            {
-                return NotFound();
-            }
-
-            return View(contato);
-        }
     }
 }
