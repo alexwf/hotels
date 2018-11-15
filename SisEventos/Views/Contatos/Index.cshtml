@@ -1,0 +1,31 @@
+﻿@model List<SisEventos.Models.Contato>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Contato</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Nome</td>
+            <td>Email</td>
+            <td>Telefone</td>
+            <td>Mensagem</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Contato contato in Model)
+        {
+        <tr>
+            <td>@contato.Nome</td>
+            <td>@contato.Email</td>
+            <td>@contato.Telefone</td>
+            <td>@contato.Mensagem</td>
+            
+        </tr>
+        }
+    </tbody>
+    
+</table>

@@ -1,0 +1,32 @@
+﻿@model List<SisEventos.Models.Hotel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Hoteis</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Descrição</td>
+            <td>Imagem</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Hotel hotel in Model)
+        {
+            <tr>
+                <td>@hotel.Id</td>
+                <td>@hotel.Nome</td>
+                <td>@hotel.Descricao</td>
+                <td>
+                    <img src="@hotel.CaminhoImagem" />
+                </td>
+            </tr>
+        }
+    </tbody>
+    
+</table>

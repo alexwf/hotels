@@ -14,8 +14,9 @@ namespace SisEventos.Models
         public virtual DbSet<Cidade> Cidades { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Suite> Suites { get; set; }
-        public virtual DbSet<Suite> Reserva { get; set; }
-        public virtual DbSet<Suite> Gastronomia { get; set; }
-        public virtual DbSet<Suite> Contato { get; set; }
+        public virtual DbSet<Reserva> Reserva { get; set; }
+        public virtual DbSet<Gastronomia> Gastronomia { get; set; }
+        public virtual DbSet<Contato> Contato { get; set; }
     }
+
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SisEventos.Models
 {
-    public class Gastromia
+    public class Gastronomia
     {
         public long Id { get; set; }
 

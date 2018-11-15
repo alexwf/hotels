@@ -1,0 +1,25 @@
+﻿@model List<SisEventos.Models.Gastronomia>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Gastronomia</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Nome</td>
+           
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Gastronomia gastronomia in Model)
+        {
+            <tr>
+                <td>@gastronomia.Nome</td>
+            </tr>
+        }
+    </tbody>
+    
+</table>

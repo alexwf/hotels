@@ -1,0 +1,28 @@
+﻿@model List<SisEventos.Models.Suite>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Suítes</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Camas de Casal</td>
+            <td>Camas de Solteiro</td>
+            <td>Tipo</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Suite suite in Model)
+        {
+            <tr>
+                <td>@suite.QtCamaCasal</td>
+                <td>@suite.QtCamaSolteiro</td>
+                <td>@suite.QtCamaSolteiro</td>
+            </tr>
+        }
+    </tbody>
+    
+</table>

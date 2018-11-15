@@ -1,0 +1,14 @@
+﻿@model SisEventos.Models.Hotel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h2>Hotel</h2>
+
+<div>
+    <h1>@Model.Nome</h1>
+    <h3>Cidade: @Model.Cidade.Nome</h3>
+    <p>@Model.Preco</p>
+    <p>@Model.Descricao</p>
+    <img src="@Model.CaminhoImagem" />
+</div>
