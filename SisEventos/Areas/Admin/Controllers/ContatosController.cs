@@ -8,20 +8,21 @@ using SisEventos.Models;
 
 namespace SisEventos.Controllers
 {
-    public class GastronomiasController : Controller
+    public class ContatosController : Controller
     {
 
         private Banco db;
 
-        public GastronomiasController(Banco _db)
+        public ContatosController(Banco _db)
         {
             this.db = _db;
         }
 
         public IActionResult Index()
         {
-            List<Gastronomia> gastronomias = db.Gastronomia.ToList();
-            return View(gastronomias );
+            List<Contato> contatos = db.Contatos.ToList();
+ 
+            return View(contatos);
         }
     }
 }

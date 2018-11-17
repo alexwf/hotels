@@ -10,7 +10,8 @@ namespace SisEventos.Models
     {
         public long Id { get; set; }
 
+        [Required(ErrorMessage = "Informe o nome do prato")]
         [Display(Name = "Nome")]
-        public String Nome { get; set; }
+        public string Nome { get; set; }
     }
 }

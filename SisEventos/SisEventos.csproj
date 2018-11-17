@@ -21,16 +21,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Areas\Admin\Views\Gastronomias\Create.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Areas\Admin\Views\_ViewStart.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Auth\SignUp.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Gastronomias\Detail.cshtml">
+    <Content Update="Areas\Admin\Views\Gastronomias\Detail.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Gastronomias\Index.cshtml">
+    <Content Update="Areas\Admin\Views\Gastronomias\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Contatos\Detail.cshtml">
@@ -39,22 +42,22 @@
     <Content Update="Views\Contatos\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Reservas\Detail.cshtml">
+    <Content Update="Areas\Admin\Views\Reservas\Detail.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Reservas\Index.cshtml">
+    <Content Update="Areas\Admin\Views\Reservas\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Usuarios\Detail.cshtml">
+    <Content Update="Areas\Admin\Views\Usuarios\Detail.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Usuarios\Index.cshtml">
+    <Content Update="Areas\Admin\Views\Usuarios\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Suites\Detail.cshtml">
+    <Content Update="Areas\Admin\Views\Suites\Detail.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Suites\Index.cshtml">
+    <Content Update="Areas\Admin\Views\Suites\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Hoteis\Detail.cshtml">
