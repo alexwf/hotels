@@ -4,9 +4,7 @@
 }
 
 <h2>Nova Mensagem</h2>
-
 <div class="row">
-
     <form asp-controller="Contatos"
           asp-action="Create"
           method="post"
@@ -25,7 +23,6 @@
                 <span class="text-danger" asp-validation-for="Telefone"></span>
             </div>
         </div>
-
         <div class="form-group">
             <label class="col-sm-12 control-label" asp-for="Email"></label>
             <div class="col-sm-12">
@@ -53,5 +50,4 @@
             </div>
         </div>
     </form>
-
 </div>

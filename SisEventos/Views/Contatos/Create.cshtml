@@ -1,0 +1,55 @@
+﻿@model SisEventos.Models.Contato
+@{
+    ViewData["Title"] = "Contato";
+}
+
+<div class="container">
+    <h2>Nova Mensagem</h2>
+    <div class="row">
+        <form asp-controller="Contatos"
+              asp-action="Create"
+              method="post"
+              class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-12 control-label" asp-for="Nome"></label>
+                <div class="col-sm-12">
+                    <input class="form-control" asp-for="Nome" />
+                    <span class="text-danger" asp-validation-for="Nome"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-12 control-label" asp-for="Telefone"></label>
+                <div class="col-sm-12">
+                    <input class="form-control" asp-for="Telefone" />
+                    <span class="text-danger" asp-validation-for="Telefone"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-12 control-label" asp-for="Email"></label>
+                <div class="col-sm-12">
+                    <input type="email" class="form-control" asp-for="Email" />
+                    <span class="text-danger" asp-validation-for="Email"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-12 control-label" asp-for="Mensagem"></label>
+                <div class="col-sm-12">
+                    <textarea class="form-control" asp-for="Mensagem" rows="3"></textarea>
+                    <span class="text-danger" asp-validation-for="Mensagem"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-12 col-sm-12">
+                    <a asp-area="Admin"
+                       asp-controller="Contatos"
+                       asp-action="Index"
+                       class="btn btn-default">Cancelar</a>
+                    <button type="submit"
+                            class="btn btn-success">
+                        Salvar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

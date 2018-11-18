@@ -1,17 +1,15 @@
-﻿@model SisEventos.Models.Hotel;
+﻿@model SisEventos.Models.Contato;
 @{
     ViewData["Title"] = "Delete";
 }
 
-<h2>Apagar cidade</h2>
-
-<p>Tem certeza que quer apagar o hotel @Model.Nome ?</p>
-
-<form asp-controller="Hoteis" asp-action="Delete" method="post">
+<h2>Apagar mensagem</h2>
+<p>Tem certeza que quer apagar a mensagem @Model.Id ?</p>
+<form asp-controller="Contatos" asp-action="Delete" method="post">
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <a asp-area="Admin"
-               asp-controller="Hoteis"
+               asp-controller="Contatos"
                asp-action="Index"
                class="btn btn-default">Cancelar</a>
             <button type="submit"
@@ -21,4 +19,3 @@
         </div>
     </div>
 </form>
-
