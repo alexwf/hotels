@@ -5,9 +5,7 @@
 
 <h2>Mensagens</h2>
 
-
 <a class="btn btn-primary" asp-controller="Contatos" asp-action="Create">Adicionar contato</a>
-
 <table class="table table-striped">
     <thead>
         <tr>
@@ -20,20 +18,19 @@
         </tr>
     </thead>
     <tbody>
-       @foreach(var contato in Model)
-       {
-        <tr>
-            <td>@contato.Id</td>
-            <td>@contato.Nome</td>
-            <td>@contato.Telefone</td>
-            <td>@contato.Email</td>
-            <td>@contato.Mensagem</td>
-            <td>
-                <a asp-area="Admin" asp-controller="Contatos" asp-action="Edit" asp-route-id="@contato.Id">Editar</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <a asp-area="Admin" asp-controller="Contatos" asp-action="Delete" asp-route-id="@contato.Id">Apagar</a>
-            </td>
-        </tr>
-       }
+        @foreach (var contato in Model)
+        {
+            <tr>
+                <td>@contato.Id</td>
+                <td>@contato.Nome</td>
+                <td>@contato.Telefone</td>
+                <td>@contato.Email</td>
+                <td>@contato.Mensagem</td>
+                <td>
+                    <a asp-area="Admin" asp-controller="Contatos" asp-action="Edit" asp-route-id="@contato.Id">Editar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a asp-area="Admin" asp-controller="Contatos" asp-action="Delete" asp-route-id="@contato.Id">Apagar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
-

@@ -42,21 +42,22 @@ namespace SisEventos.Areas.Admin.Controllers
             return View(vm);
         }
 
-        [HttpGet]
-        public IActionResult Edit(long Id)
-        {
-            Cidade cidade = this.db.Cidades
-                                    .Where(x => x.Id == Id)
-                                    .FirstOrDefault();
+        //[HttpGet]
+        //public IActionResult Edit(long Id)
+        //{
+        //    Cidade cidade = this.db.Cidades
+        //                            .Where(x => x.Id == Id)
+        //                            .FirstOrDefault();
 
 
-            CidadeVM vm = new CidadeVM();
-            //vm.Nome = Cidade.Nome;
-        }
+        //    CidadeVM vm = new CidadeVM();
+        //    //vm.Nome = Cidade.Nome;
+        //}
 
-        [HttpPost]
-        public IActionResult Edit(long Id, CidadeVM vm)
-        {
+        //[HttpPost]
+        //public IActionResult Edit(long Id, CidadeVM vm)
+        //{
 
-        }
+        //}
+    }
 }
