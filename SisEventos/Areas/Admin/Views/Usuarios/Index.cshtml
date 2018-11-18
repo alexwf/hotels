@@ -2,29 +2,31 @@
 @{
     ViewData["Title"] = "Index";
 }
-
 <h2>Usuários</h2>
 
-<table class="table">
+<a href="/admin/usuarios/create" class="btn btn-primary">Adicionar Novo</a>
+
+<table class="table table-striped">
     <thead>
         <tr>
-            <td>Nome</td>
-            <td>E-mail</td>
-            <td>ID</td>
-            
+            <th>Código</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th></th>
         </tr>
     </thead>
-
     <tbody>
-        @foreach (Usuario usuario in Model)
+        @foreach (var usuario in Model)
         {
-            <tr>
-                <td>@usuario.Nome</td>
-                <td>@usuario.Email</td>
-                <td>@usuario.Id</td>
-               
-            </tr>
+        <tr>
+            <td>@usuario.Id</td>
+            <td>@usuario.Nome</td>
+            <td>@usuario.Email</td>
+            <td>
+                <a asp-area="Admin" asp-controller="Usuarios" asp-action="Edit" asp-route-id="@usuario.Id">Editar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a asp-area="Admin" asp-controller="Usuarios" asp-action="Delete" asp-route-id="@usuario.Id">Apagar</a>
+            </td>
+        </tr>
         }
     </tbody>
-    
 </table>

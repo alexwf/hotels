@@ -3,41 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using SisEventos.Models;
 
-namespace SisEventos.Controllers
+namespace SisEventos.Areas.Admin.Controllers
 {
-    public class ReservasController : Controller
+    public class ReservasController : BaseAdminController
     {
-
-        private Banco db;
-
-        public ReservasController(Banco _db)
-        {
-            this.db = _db;
-        }
+        public ReservasController(Banco db) : base(db) { }
 
         public IActionResult Index()
         {
-            List<Hotel> hoteis = db.Hoteis.ToList();
-            return View(hoteis);
+            var reservas = db.Reservas.ToList();
+            return View(reservas);
         }
 
         [HttpGet]
-        public IActionResult Detail(long id)
+        public IActionResult Create()
         {
-            Hotel hotel = this.db.Hoteis
-                                  .Include(m => m.Cidade)
-                                  .Where(x => x.Id == id)
-                                  .FirstOrDefault();
+            Reserva reserva = new Reserva();
+            return View(reserva);
+        }
 
-            if (hotel == null)
+        [HttpPost]
+        public IActionResult Create(Reserva reserva)
+        {
+            if (ModelState.IsValid)
             {
-                return NotFound();
+                db.Reservas.Add(reserva);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
 
-            return View(hotel);
+            return View(reserva);
         }
     }
 }

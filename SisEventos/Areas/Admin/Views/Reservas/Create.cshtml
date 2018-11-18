@@ -1,23 +1,22 @@
-﻿@model SisEventos.Models.Gastronomia
+﻿@model SisEventos.Models.Reserva
 @{
-    ViewData["Title"] = "Gastronomia";
+    ViewData["Title"] = "Reserva";
 }
 
-<h2>Novo prato</h2>
+<h2>Nova Reserva</h2>
 
 <div class="row">
 
-    <form asp-controller="Gastronomias"
+    <form asp-controller="Reservas"
           asp-action="Create"
           method="post"
           class="form-horizontal">
 
         <div class="form-group">
-            <label class="col-sm-12 control-label" asp-for="Nome"></label>
+            <label class="col-sm-12 control-label" asp-for="Id"></label>
 
             <div class="col-sm-12">
-                <input class="form-control" asp-for="Nome" />
-                <span class="text-danger" asp-validation-for="Nome"></span>
+                <input disabled class="form-control" asp-for="Id" />
             </div>
         </div>
 
@@ -25,7 +24,7 @@
             <div class="col-sm-offset-12 col-sm-12">
 
                 <a asp-area="Admin"
-                   asp-controller="Gastronomias"
+                   asp-controller="Reservas"
                    asp-action="Index"
                    class="btn btn-default">Cancelar</a>
 

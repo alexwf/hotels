@@ -2,27 +2,33 @@
 @{
     ViewData["Title"] = "Index";
 }
+<h2>Suíte</h2>
 
-<h2>Suítes</h2>
+<a href="/admin/suites/create" class="btn btn-primary">Adicionar Suíte</a>
 
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
-            <td>Camas de Casal</td>
-            <td>Camas de Solteiro</td>
-            <td>Tipo</td>
+            <th>Código</th>
+            <th>Tipo</th>
+            <th>Qt. Cama de casal</th>
+            <th>Qt. Cama de solteiro</th>
+            <th></th>
         </tr>
     </thead>
-
     <tbody>
-        @foreach (Suite suite in Model)
+        @foreach (var suite in Model)
         {
-            <tr>
-                <td>@suite.QtCamaCasal</td>
-                <td>@suite.QtCamaSolteiro</td>
-                <td>@suite.QtCamaSolteiro</td>
-            </tr>
+        <tr>
+            <td>@suite.Id</td>
+            <td>@suite.Tipo</td>
+            <td>@suite.QtCamaCasal</td>
+            <td>@suite.QtCamaSolteiro</td>
+            <td>
+                <a asp-area="Admin" asp-controller="Suites" asp-action="Edit" asp-route-id="@suite.Id">Editar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a asp-area="Admin" asp-controller="Suites" asp-action="Delete" asp-route-id="@suite.Id">Apagar</a>
+            </td>
+        </tr>
         }
     </tbody>
-    
 </table>

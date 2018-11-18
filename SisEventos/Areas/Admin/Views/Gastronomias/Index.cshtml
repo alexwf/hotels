@@ -2,24 +2,28 @@
 @{
     ViewData["Title"] = "Index";
 }
-
 <h2>Gastronomia</h2>
 
-<table class="table">
+<a class="btn btn-primary" asp-controller="Gastronomias" asp-action="Create">Adicionar prato</a>
+<table class="table table-striped">
     <thead>
         <tr>
-            <td>Nome</td>
-           
+            <th>Código</th>
+            <th>Nome</th>
+            <th></th>
         </tr>
     </thead>
-
     <tbody>
-        @foreach (Gastronomia gastronomia in Model)
+        @foreach (var gastronomia in Model)
         {
             <tr>
+                <td>@gastronomia.Id</td>
                 <td>@gastronomia.Nome</td>
+                <td>
+                    <a asp-area="Admin" asp-controller="Gastronomias" asp-action="Edit" asp-route-id="@gastronomia.Id">Editar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a asp-area="Admin" asp-controller="Gastronomias" asp-action="Delete" asp-route-id="@gastronomia.Id">Apagar</a>
+                </td>
             </tr>
         }
     </tbody>
-    
 </table>

@@ -1,0 +1,24 @@
+﻿@model SisEventos.Models.Usuario;
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Apagar usuario</h2>
+
+<p>Tem certeza que quer apagar o usuario @Model.Nome ?</p>
+
+<form asp-controller="Usuarios" asp-action="Delete" method="post">
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <a asp-area="Admin"
+               asp-controller="Usuarios"
+               asp-action="Index"
+               class="btn btn-default">Cancelar</a>
+            <button type="submit"
+                    class="btn btn-danger">
+                Apagar
+            </button>
+        </div>
+    </div>
+</form>
+

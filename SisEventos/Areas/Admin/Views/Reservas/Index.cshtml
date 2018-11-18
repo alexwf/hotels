@@ -1,32 +1,22 @@
-﻿@model List<SisEventos.Models.Hotel>
+﻿@model List<SisEventos.Models.Reserva>
 @{
     ViewData["Title"] = "Index";
 }
+<h2>Reservas</h2>
 
-<h2>Hoteis</h2>
-
-<table class="table">
+<a class="btn btn-primary" asp-controller="Reservas" asp-action="Create">Adicionar reserva</a>
+<table class="table table-striped">
     <thead>
         <tr>
-            <td>Id</td>
-            <td>Nome</td>
-            <td>Descrição</td>
-            <td>Imagem</td>
+            <th>Código</th>
         </tr>
     </thead>
-
     <tbody>
-        @foreach (Hotel hotel in Model)
+        @foreach (var reserva in Model)
         {
             <tr>
-                <td>@hotel.Id</td>
-                <td>@hotel.Nome</td>
-                <td>@hotel.Descricao</td>
-                <td>
-                    <img src="@hotel.CaminhoImagem" />
-                </td>
+                <td>@reserva.Id</td>
             </tr>
         }
     </tbody>
-    
 </table>

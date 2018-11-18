@@ -11,18 +11,22 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <td>Código</td>
-            <td>Nome</td>
-            <td></td>
+            <th>Código</th>
+            <th>Nome</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
        @foreach(var cidade in Model)
        {
-           <tr>
-               <td>@cidade.Id</td>
-               <td>@cidade.Nome</td>
-           </tr>
+        <tr>
+            <td>@cidade.Id</td>
+            <td>@cidade.Nome</td>
+            <td>
+                <a asp-area="Admin" asp-controller="Cidades" asp-action="Edit" asp-route-id="@cidade.Id">Editar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a asp-area="Admin" asp-controller="Cidades" asp-action="Delete" asp-route-id="@cidade.Id">Apagar</a>
+            </td>
+        </tr>
        }
     </tbody>
 </table>
