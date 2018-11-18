@@ -15,12 +15,7 @@ namespace SisEventos.Areas.Admin.Controllers
 {
     public class UsuariosController : BaseAdminController
     {
-        private IHostingEnvironment env;
-
-        public UsuariosController(Banco _db, IHostingEnvironment _env) : base(_db)
-        {
-            this.env = _env;
-        }
+        public UsuariosController(Banco db) : base(db){ }
 
         public IActionResult Index()
         {

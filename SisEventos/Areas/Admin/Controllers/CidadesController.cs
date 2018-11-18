@@ -43,20 +43,53 @@ namespace SisEventos.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(long Id)
+        public IActionResult Edit(long id)
         {
             Cidade cidade = this.db.Cidades
-                                    .Where(x => x.Id == Id)
-                                    .FirstOrDefault();
-
+                                   .Where(x => x.Id == id)
+                                   .FirstOrDefault();
 
             CidadeVM vm = new CidadeVM();
-            //vm.Nome = Cidade.Nome;
+            vm.Nome = cidade.Nome;
+
+            return View(vm);
         }
 
         [HttpPost]
-        public IActionResult Edit(long Id, CidadeVM vm)
+        public IActionResult Edit(long id, CidadeVM vm)
         {
+            if (ModelState.IsValid)
+            {
+                Cidade cidadeDb = this.db.Cidades.Find(id);
+                cidadeDb.Nome = vm.Nome;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
+            return View(vm);
         }
+
+        [HttpGet]
+        public IActionResult Delete(long id)
+        {
+            Cidade cidade = this.db.Cidades
+                                  .Where(x => x.Id == id)
+                                  .FirstOrDefault();
+
+            return View(cidade);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(long id, Cidade cidade)
+        {
+            Cidade cidadeDb = this.db.Cidades
+                                  .Where(x => x.Id == id)
+                                  .FirstOrDefault();
+
+            db.Cidades.Remove(cidadeDb);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+    }
 }

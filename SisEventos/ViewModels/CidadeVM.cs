@@ -21,7 +21,7 @@ namespace SisEventos.ViewModels
         [Required(ErrorMessage = "Informe o nome da cidade")]
         [StringLength(50, MinimumLength = 5, ErrorMessage =
             "O Nome deve ter no mínimo 5 e no máximo 50 caracteres.")]
-        [Display(Name = "Nome do usuário")]
+        [Display(Name = "Nome da cidade")]
         public string Nome { get; set; }
     }
 }
