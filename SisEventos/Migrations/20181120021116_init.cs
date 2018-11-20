@@ -103,6 +103,7 @@ namespace SisEventos.Migrations
                     CaminhoImagem = table.Column<string>(nullable: true),
                     CidadeId = table.Column<long>(nullable: true),
                     Descricao = table.Column<string>(nullable: true),
+                    GastronomiaId = table.Column<long>(nullable: true),
                     Nome = table.Column<string>(nullable: true),
                     Preco = table.Column<decimal>(nullable: false),
                     SuiteId = table.Column<long>(nullable: true)
@@ -114,6 +115,12 @@ namespace SisEventos.Migrations
                         name: "FK_Hoteis_Cidades_CidadeId",
                         column: x => x.CidadeId,
                         principalTable: "Cidades",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Hoteis_Gastronomias_GastronomiaId",
+                        column: x => x.GastronomiaId,
+                        principalTable: "Gastronomias",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -130,6 +137,11 @@ namespace SisEventos.Migrations
                 column: "CidadeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Hoteis_GastronomiaId",
+                table: "Hoteis",
+                column: "GastronomiaId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Hoteis_SuiteId",
                 table: "Hoteis",
                 column: "SuiteId");
@@ -139,9 +151,6 @@ namespace SisEventos.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Contatos");
-
-            migrationBuilder.DropTable(
-                name: "Gastronomias");
 
             migrationBuilder.DropTable(
                 name: "Hoteis");
@@ -154,6 +163,9 @@ namespace SisEventos.Migrations
 
             migrationBuilder.DropTable(
                 name: "Cidades");
+
+            migrationBuilder.DropTable(
+                name: "Gastronomias");
 
             migrationBuilder.DropTable(
                 name: "Suites");

@@ -14,6 +14,8 @@ namespace SisEventos.ViewModels
         public HotelVM()
         {
             this.Cidades = new List<SelectListItem>();
+            this.Suites = new List<SelectListItem>();
+            this.Gastronomias = new List<SelectListItem>();
         }
         
         public long Id { get; set; }
@@ -40,5 +42,17 @@ namespace SisEventos.ViewModels
         [Display(Name = "Cidade")]
         [Required(ErrorMessage = "Informe a cidade")]
         public long IdCidadeSelecionada { get; set; }
+
+        public List<SelectListItem> Suites { get; set; }
+
+        [Display(Name = "Suítes")]
+        [Required(ErrorMessage = "Informe a suíte")]
+        public long IdSuiteSelecionada { get; set; }
+
+        public List<SelectListItem> Gastronomias { get; set; }
+
+        [Display(Name = "Gastronomia")]
+        [Required(ErrorMessage = "Informe o prato")]
+        public long IdGastronomiaSelecionada { get; set; }
     }
 }

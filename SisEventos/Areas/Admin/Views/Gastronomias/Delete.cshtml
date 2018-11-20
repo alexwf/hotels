@@ -1,17 +1,17 @@
-﻿@model SisEventos.Models.Hotel;
+﻿@model SisEventos.Models.Gastronomia;
 @{
     ViewData["Title"] = "Delete";
 }
 
 <h2>Apagar cidade</h2>
 
-<p>Tem certeza que quer apagar o hotel @Model.Nome ?</p>
+<p>Tem certeza que quer apagar o prato @Model.Nome ?</p>
 
-<form asp-controller="Hoteis" asp-action="Delete" method="post">
+<form asp-controller="Gastronomias" asp-action="Delete" method="post">
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <a asp-area="Admin"
-               asp-controller="Hoteis"
+               asp-controller="Gastronomias"
                asp-action="Index"
                class="btn btn-default">Cancelar</a>
             <button type="submit"

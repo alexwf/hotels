@@ -84,9 +84,6 @@
     <Content Update="Views\Auth\SignUp.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Admin\Views\Gastronomias\Detail.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
     <Content Update="Areas\Admin\Views\Gastronomias\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

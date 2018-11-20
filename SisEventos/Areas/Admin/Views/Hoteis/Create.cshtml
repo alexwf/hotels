@@ -43,7 +43,24 @@
                 <span class="text-danger" asp-validation-for="IdCidadeSelecionada"></span>
             </div>
         </div>
-
+        <div class="form-group">
+            <label class="col-sm-12 control-label" asp-for="IdSuiteSelecionada"></label>
+            <div class="col-sm-12">
+                <select class="form-control" asp-for="IdSuiteSelecionada" asp-items="Model.Suites">
+                    <option value="">Selecione uma opção</option>
+                </select>
+                <span class="text-danger" asp-validation-for="IdSuiteSelecionada"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-12 control-label" asp-for="IdGastronomiaSelecionada"></label>
+            <div class="col-sm-12">
+                <select class="form-control" asp-for="IdGastronomiaSelecionada" asp-items="Model.Gastronomias">
+                    <option value="">Selecione uma opção</option>
+                </select>
+                <span class="text-danger" asp-validation-for="IdGastronomiaSelecionada"></span>
+            </div>
+        </div>
         <div class="form-group">
             <label class="col-sm-12 control-label" asp-for="Imagem"></label>
             <div class="col-sm-12">

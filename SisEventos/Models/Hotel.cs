@@ -28,5 +28,8 @@ namespace SisEventos.Models
         [Display(Name = "Suite")]
         public virtual Suite Suite { get; set; }
 
+        [Display(Name = "Gastronomia")]
+        public virtual Gastronomia Gastronomia { get; set; }
+
     }
 }

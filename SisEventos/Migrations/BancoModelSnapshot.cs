@@ -75,6 +75,8 @@ namespace SisEventos.Migrations
 
                     b.Property<string>("Descricao");
 
+                    b.Property<long?>("GastronomiaId");
+
                     b.Property<string>("Nome");
 
                     b.Property<decimal>("Preco");
@@ -84,6 +86,8 @@ namespace SisEventos.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CidadeId");
+
+                    b.HasIndex("GastronomiaId");
 
                     b.HasIndex("SuiteId");
 
@@ -142,6 +146,10 @@ namespace SisEventos.Migrations
                     b.HasOne("SisEventos.Models.Cidade", "Cidade")
                         .WithMany()
                         .HasForeignKey("CidadeId");
+
+                    b.HasOne("SisEventos.Models.Gastronomia", "Gastronomia")
+                        .WithMany()
+                        .HasForeignKey("GastronomiaId");
 
                     b.HasOne("SisEventos.Models.Suite", "Suite")
                         .WithMany()

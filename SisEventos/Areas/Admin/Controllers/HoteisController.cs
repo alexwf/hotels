@@ -63,6 +63,26 @@ namespace SisEventos.Areas.Admin.Controllers
                 });
             }
 
+            var suites = db.Suites.ToList();
+            foreach(var suite in suites)
+            {
+                vm.Suites.Add(new SelectListItem
+                {
+                    Value = suite.Id.ToString(),
+                    Text = suite.Tipo
+                });
+            }
+
+            var gastronomias = db.Gastronomias.ToList();
+            foreach (var gastronomia in gastronomias)
+            {
+                vm.Gastronomias.Add(new SelectListItem
+                {
+                    Value = gastronomia.Id.ToString(),
+                    Text = gastronomia.Nome
+                });
+            }
+
             return View(vm);
         }
 
@@ -77,6 +97,8 @@ namespace SisEventos.Areas.Admin.Controllers
                 hotel.Preco = vm.Preco;
                 hotel.CaminhoImagem = this.UploadImagem(vm.Imagem);
                 hotel.Cidade = db.Cidades.Find(vm.IdCidadeSelecionada);
+                hotel.Suite = db.Suites.Find(vm.IdSuiteSelecionada);
+                hotel.Gastronomia = db.Gastronomias.Find(vm.IdGastronomiaSelecionada);
                 this.db.Hoteis.Add(hotel);
                 this.db.SaveChanges();
                 return RedirectToAction("Index");
@@ -91,7 +113,27 @@ namespace SisEventos.Areas.Admin.Controllers
                     Text = cidade.Nome
                 });
             }
-            
+
+            var suites = db.Suites.ToList();
+            foreach (var suite in suites)
+            {
+                vm.Suites.Add(new SelectListItem
+                {
+                    Value = suite.Id.ToString(),
+                    Text = suite.Tipo
+                });
+            }
+
+            var gastronomias = db.Gastronomias.ToList();
+            foreach (var gastronomia in gastronomias)
+            {
+                vm.Gastronomias.Add(new SelectListItem
+                {
+                    Value = gastronomia.Id.ToString(),
+                    Text = gastronomia.Nome
+                });
+            }
+
             return View(vm);
         }
 
