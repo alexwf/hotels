@@ -2,13 +2,16 @@
 @{
     ViewData["Title"] = "Detail";
 }
-
-<h2>Hotel</h2>
-
-<div>
-    <h1>@Model.Nome</h1>
-    <h3>Cidade: @Model.Cidade.Nome</h3>
-    <p>@Model.Preco</p>
-    <p>@Model.Descricao</p>
-    <img src="@Model.CaminhoImagem" />
+<div class="container">
+    <h2>@Model.Nome</h2>
+    <div>
+        <h4>Cidade: @Model.Cidade.Nome</h4>
+        <p>Diária: R$@Model.Preco</p>
+        <p>Suíte: @Model.Suite.Tipo</p>
+        <p>Camas casal: @Model.Suite.QtCamaCasal</p>
+        <p>Camas solteiro: @Model.Suite.QtCamaSolteiro</p>
+        <p>@Model.Descricao</p>
+        <p>Gastronomia: @Model.Gastronomia.Nome</p>
+        <img src="@Model.CaminhoImagem" />
+    </div>
 </div>

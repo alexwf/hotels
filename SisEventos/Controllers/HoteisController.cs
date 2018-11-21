@@ -29,6 +29,8 @@ namespace SisEventos.Controllers
         {
             Hotel hotel = this.db.Hoteis
                                   .Include(m => m.Cidade)
+                                  .Include(m => m.Suite)
+                                  .Include(m => m.Gastronomia)
                                   .Where(x => x.Id == id)
                                   .FirstOrDefault();
 
